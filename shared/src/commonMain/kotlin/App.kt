@@ -21,12 +21,13 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import screens.ProfileScreen
 import screens.ProjectsScreen
+import screens.WorkExperienceScreen
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App() {
 
-    var state = mutableStateOf<BottomNavigationBarState>(BottomNavigationBarState.Projects)
+    var state = mutableStateOf<BottomNavigationBarState>(BottomNavigationBarState.Experience)
 
     Scaffold(
         bottomBar = {
@@ -145,6 +146,7 @@ fun App() {
             when (state.value) {
                 BottomNavigationBarState.Home -> ProfileScreen()
                 BottomNavigationBarState.Projects -> ProjectsScreen()
+                BottomNavigationBarState.Experience -> WorkExperienceScreen()
                 else -> ProfileScreen()
             }
         },

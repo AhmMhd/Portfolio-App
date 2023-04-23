@@ -52,4 +52,60 @@ object ContentProvider {
         )
     }
 
+    fun provideListOfWorkExperience(): List<WorkExperience>  = ArrayList<WorkExperience>().apply {
+        add(
+            WorkExperience(
+                "Software Engineer - I",
+                "Avrioc Technologies",
+                "ic_avrioc.jpeg",
+                "March 2023",
+                "Present",
+                "Abu Dhabi, United Arab Emirates",
+                ""
+            )
+        )
+
+        add(
+            WorkExperience(
+                "Software Engineer - II",
+                "Alef Education",
+                "ic_alef.jpeg",
+                "May 2021",
+                "Dec 2022",
+                "Remote",
+                "Integrated a complete monetization module in the app to access premium content.\n" +
+                        "Helped in improving application performance by fixing ANRs and Memory leaks.\n" +
+                        "Integrated In-App updates.\n" +
+                        "Helped in improving the overall architecture of the app."
+            )
+        )
+
+        add(
+            WorkExperience(
+                "Software Engineer - II",
+                "Airlift Technologies",
+                "ic_airlift.webp",
+                "March 2022",
+                "June 2022",
+                "Remote",
+                "Worked on multiple CX-App features.\n" +
+                        "Identifying and fixing tech-debt.\n" +
+                        "Write clean and testable code."
+            )
+        )
+
+        add(
+            WorkExperience(
+                "Software Engineer - II",
+                "PNC Solutions",
+                "ic_pnc.jpeg",
+                "May 2017",
+                "Dec 2021",
+                "Karachi, Pakistan",
+                "Managed a team of 5 Android Developers from a technical perspective.\n" +
+                        "Helped to design a base architecture ensuring scalability, maintainability and readability of a project.\n" +
+                        "Started and finished various Android Projects from the scratch."
+            )
+        )
+    }
 }
