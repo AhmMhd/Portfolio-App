@@ -20,12 +20,13 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import screens.ProfileScreen
+import screens.ProjectsScreen
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App() {
 
-    var state = mutableStateOf<BottomNavigationBarState>(BottomNavigationBarState.Home)
+    var state = mutableStateOf<BottomNavigationBarState>(BottomNavigationBarState.Projects)
 
     Scaffold(
         bottomBar = {
@@ -141,7 +142,11 @@ fun App() {
         },
 
         content = {
-            ProfileScreen()
+            when (state.value) {
+                BottomNavigationBarState.Home -> ProfileScreen()
+                BottomNavigationBarState.Projects -> ProjectsScreen()
+                else -> ProfileScreen()
+            }
         },
 
         floatingActionButton = {
