@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -36,12 +37,17 @@ fun WorkExperienceScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            Box(modifier = Modifier.padding(16.dp)) {
+            Box(modifier = Modifier.padding(32.dp)) {
                 Text(
                     "Work Experience",
                     style = TextStyle(appYellow, fontSize = 28.sp, fontWeight = FontWeight.Bold)
                 )
             }
+
+            Divider(
+                color = appYellow,
+                modifier = Modifier.padding(start = 32.dp, end = 32.dp, bottom = 32.dp)
+            )
 
             Box(modifier = Modifier.padding(bottom = 100.dp).clipToBounds()) {
                 LazyColumn {

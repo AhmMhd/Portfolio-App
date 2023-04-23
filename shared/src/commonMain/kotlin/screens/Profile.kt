@@ -65,9 +65,10 @@ fun ProfileScreen(uriHandler: UriHandler) {
     }
 
     MaterialTheme {
-        Box {
+        BoxWithConstraints(contentAlignment = Alignment.Center) {
+            val contentHeight = (this.maxHeight.value/1.2).dp
             Column(
-                Modifier.fillMaxSize().padding(12.dp),
+                Modifier.height(contentHeight).padding(12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
             ) {

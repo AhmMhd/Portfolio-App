@@ -32,12 +32,17 @@ fun BlogsScreen(uriHandler: UriHandler) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            Box(modifier = Modifier.padding(16.dp)) {
+            Box(modifier = Modifier.padding(32.dp)) {
                 Text(
                     "Publications",
                     style = TextStyle(appYellow, fontSize = 28.sp, fontWeight = FontWeight.Bold)
                 )
             }
+
+            Divider(
+                color = appYellow,
+                modifier = Modifier.padding(start = 32.dp, end = 32.dp, bottom = 32.dp)
+            )
 
             Box(modifier = Modifier.padding(bottom = 100.dp).clipToBounds()) {
                 LazyColumn {
