@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import screens.BlogsScreen
 import screens.ProfileScreen
 import screens.ProjectsScreen
 import screens.WorkExperienceScreen
@@ -27,7 +28,7 @@ import screens.WorkExperienceScreen
 @Composable
 fun App() {
 
-    var state = mutableStateOf<BottomNavigationBarState>(BottomNavigationBarState.Experience)
+    var state = mutableStateOf<BottomNavigationBarState>(BottomNavigationBarState.Blogs)
 
     Scaffold(
         bottomBar = {
@@ -147,6 +148,7 @@ fun App() {
                 BottomNavigationBarState.Home -> ProfileScreen()
                 BottomNavigationBarState.Projects -> ProjectsScreen()
                 BottomNavigationBarState.Experience -> WorkExperienceScreen()
+                BottomNavigationBarState.Blogs -> BlogsScreen()
                 else -> ProfileScreen()
             }
         },
@@ -155,12 +157,14 @@ fun App() {
             FloatingActionButton(
                 onClick = {},
                 content = {
-                    Image(
-                        painter = painterResource("ic_hireme.png"),
-                        contentDescription = "",
-                        modifier = Modifier.width(92.dp).height(42.dp).padding(6.dp),
-                        contentScale = ContentScale.Crop,
-                    )
+                    Box(modifier = Modifier.padding(12.dp)) {
+                        Image(
+                            painter = painterResource("ic_hireme.png"),
+                            contentDescription = "",
+                            modifier = Modifier.width(91.dp).height(42.dp).padding(6.dp),
+                            contentScale = ContentScale.Crop,
+                        )
+                    }
                 },
                 backgroundColor = appYellow
             )

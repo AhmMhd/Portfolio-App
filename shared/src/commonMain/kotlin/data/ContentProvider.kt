@@ -108,4 +108,31 @@ object ContentProvider {
             )
         )
     }
+
+    fun providePublications() = ArrayList<Publication>().apply {
+        add(
+            Publication(
+                title = "Data Binding Adapters And Dependency Injection- A Short Love Story",
+                postedIn = "ProAndroidDev - Medium",
+                shortDescription = "This article was written to link data binding adapters with dependency injection to make binding adapters testable."
+            )
+        )
+
+        add(
+            Publication(
+                title = "Context of the Context — Android",
+                postedIn = "Medium",
+                shortDescription = "Understanding android context under the hood."
+            )
+        )
+
+
+        add(
+            Publication(
+                title = "Dependency Injection In Multi-Module Flutter Project",
+                postedIn = "Medium",
+                shortDescription = "Dependency Injection in flutter"
+            )
+        )
+    }
 }
