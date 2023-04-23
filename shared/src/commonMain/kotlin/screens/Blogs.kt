@@ -1,5 +1,6 @@
 package screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
@@ -9,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -20,7 +22,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun BlogsScreen() {
+fun BlogsScreen(uriHandler: UriHandler) {
 
     val publications = ContentProvider.providePublications()
     MaterialTheme {
@@ -40,7 +42,7 @@ fun BlogsScreen() {
             Box(modifier = Modifier.padding(bottom = 100.dp).clipToBounds()) {
                 LazyColumn {
                     items(publications.size) { index ->
-                        PublicationTile(publications[index])
+                        PublicationTile(publications[index], uriHandler)
                         Divider()
                     }
 
@@ -52,10 +54,13 @@ fun BlogsScreen() {
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun PublicationTile(publication: Publication) {
+fun PublicationTile(publication: Publication, uriHandler: UriHandler) {
 
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = Modifier.padding(16.dp)
+        .clickable {
+            uriHandler.openUri(publication.link)
+        }) {
         Text(
             publication.title,
             style = TextStyle(

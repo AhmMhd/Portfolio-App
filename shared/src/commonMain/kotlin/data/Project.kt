@@ -5,5 +5,6 @@ data class Project(
     val assetName: String,
     val description: String,
     val category: String,
-    val downloads: String
+    val downloads: String,
+    val appURL : String
 )

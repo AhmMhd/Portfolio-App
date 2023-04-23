@@ -13,10 +13,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import data.ContentProvider
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import screens.BlogsScreen
@@ -28,7 +30,8 @@ import screens.WorkExperienceScreen
 @Composable
 fun App() {
 
-    var state = mutableStateOf<BottomNavigationBarState>(BottomNavigationBarState.Blogs)
+    val uriHandler = LocalUriHandler.current
+    var state = mutableStateOf<BottomNavigationBarState>(BottomNavigationBarState.Home)
 
     Scaffold(
         bottomBar = {
@@ -145,17 +148,19 @@ fun App() {
 
         content = {
             when (state.value) {
-                BottomNavigationBarState.Home -> ProfileScreen()
-                BottomNavigationBarState.Projects -> ProjectsScreen()
+                BottomNavigationBarState.Home -> ProfileScreen(uriHandler)
+                BottomNavigationBarState.Projects -> ProjectsScreen(uriHandler)
                 BottomNavigationBarState.Experience -> WorkExperienceScreen()
-                BottomNavigationBarState.Blogs -> BlogsScreen()
-                else -> ProfileScreen()
+                BottomNavigationBarState.Blogs -> BlogsScreen(uriHandler)
+                else -> ProfileScreen(uriHandler)
             }
         },
 
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {},
+                onClick = {
+                    uriHandler.openUri(ContentProvider.linkedInURL)
+                },
                 content = {
                     Box(modifier = Modifier.padding(12.dp)) {
                         Image(
@@ -171,5 +176,3 @@ fun App() {
         }
     )
 }
-
-expect fun getPlatformName(): String

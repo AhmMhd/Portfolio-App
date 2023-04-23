@@ -2,6 +2,7 @@ package screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
@@ -11,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -21,12 +23,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import appBlack
 import appYellow
+import data.ContentProvider
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
+
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(uriHandler: UriHandler) {
 
     val introductionText = buildAnnotatedString {
         withStyle(style = SpanStyle(appBlack, fontSize = 20.sp, fontWeight = FontWeight.Bold)) {
@@ -36,26 +40,22 @@ fun ProfileScreen() {
             append("Abdul Hakeem")
         }
     }
-
     val aboutSectionText = buildAnnotatedString {
         withStyle(style = SpanStyle(appBlack, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
             append("I am a forward-thinking developer with ")
         }
-
         withStyle(style = SpanStyle(appYellow, fontSize = 16.sp, fontWeight = FontWeight.Bold)) {
             append("6 Years ")
         }
         withStyle(style = SpanStyle(appBlack, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
             append("of experience building, integrating and supporting ")
         }
-
         withStyle(style = SpanStyle(appYellow, fontSize = 16.sp, fontWeight = FontWeight.Bold)) {
             append("Android Applications ")
         }
         withStyle(style = SpanStyle(appBlack, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
             append("for mobile devices.\n\nCurrently living in ")
         }
-
         withStyle(style = SpanStyle(appYellow, fontSize = 16.sp, fontWeight = FontWeight.Bold)) {
             append("Abu Dhabi (UAE)")
         }
@@ -109,28 +109,37 @@ fun ProfileScreen() {
                     Image(
                         painter = painterResource("ic_medium.png"),
                         contentDescription = "",
-                        modifier = Modifier.width(52.dp).height(52.dp).padding(6.dp),
+                        modifier = Modifier.width(52.dp).height(52.dp).padding(6.dp)
+                            .clickable {
+                                uriHandler.openUri(ContentProvider.mediumURL)
+                            },
                         contentScale = ContentScale.Crop,
                     )
 
                     Image(
                         painter = painterResource("ic_linkedin.png"),
                         contentDescription = "",
-                        modifier = Modifier.width(52.dp).height(52.dp).padding(6.dp),
+                        modifier = Modifier.width(52.dp).height(52.dp).padding(6.dp).clickable {
+                            uriHandler.openUri(ContentProvider.linkedInURL)
+                        },
                         contentScale = ContentScale.Crop
                     )
 
                     Image(
                         painter = painterResource("ic_github.png"),
                         contentDescription = "",
-                        modifier = Modifier.width(52.dp).height(52.dp).padding(6.dp),
+                        modifier = Modifier.width(52.dp).height(52.dp).padding(6.dp).clickable {
+                            uriHandler.openUri(ContentProvider.githubURL)
+                        },
                         contentScale = ContentScale.Crop
                     )
 
                     Image(
                         painter = painterResource("ic_stakeoverflow.png"),
                         contentDescription = "",
-                        modifier = Modifier.width(52.dp).height(52.dp).padding(6.dp),
+                        modifier = Modifier.width(52.dp).height(52.dp).padding(6.dp).clickable {
+                            uriHandler.openUri(ContentProvider.stackoverflowURL)
+                        },
                         contentScale = ContentScale.Crop
                     )
                 }

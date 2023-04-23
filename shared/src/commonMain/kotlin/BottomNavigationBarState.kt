@@ -1,4 +1,4 @@
-sealed class BottomNavigationBarState{
+sealed class BottomNavigationBarState {
     object Home : BottomNavigationBarState()
     object Skills : BottomNavigationBarState()
     object Experience : BottomNavigationBarState()

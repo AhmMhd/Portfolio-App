@@ -2,6 +2,7 @@ package screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.UriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -27,7 +29,7 @@ import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun ProjectsScreen() {
+fun ProjectsScreen(uriHandler: UriHandler) {
 
     val projects = ContentProvider.provideListOfProjects()
     MaterialTheme {
@@ -47,7 +49,7 @@ fun ProjectsScreen() {
             Box(modifier = Modifier.padding(bottom = 100.dp).clipToBounds()) {
                 LazyColumn {
                     items(projects.size) { index ->
-                        ProjectTile(projects[index])
+                        ProjectTile(projects[index], urlHandler = uriHandler)
                         Divider(color = Color.LightGray)
                     }
 
@@ -59,9 +61,12 @@ fun ProjectsScreen() {
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun ProjectTile(project: Project) {
+fun ProjectTile(project: Project, urlHandler: UriHandler) {
     Row(
-        Modifier.fillMaxSize().padding(12.dp),
+        Modifier.fillMaxSize().padding(12.dp)
+            .clickable {
+                urlHandler.openUri(project.appURL)
+            },
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box(
