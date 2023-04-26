@@ -33,7 +33,7 @@ import org.jetbrains.compose.resources.painterResource
 fun ProfileScreen(uriHandler: UriHandler) {
 
     val introductionText = buildAnnotatedString {
-        withStyle(style = SpanStyle(appBlack, fontSize = 20.sp, fontWeight = FontWeight.Bold)) {
+        withStyle(style = SpanStyle(MaterialTheme.colors.secondary, fontSize = 20.sp, fontWeight = FontWeight.Bold)) {
             append("Hi, I am ")
         }
         withStyle(style = SpanStyle(appYellow, fontSize = 28.sp, fontWeight = FontWeight.Bold)) {
@@ -41,25 +41,25 @@ fun ProfileScreen(uriHandler: UriHandler) {
         }
     }
     val aboutSectionText = buildAnnotatedString {
-        withStyle(style = SpanStyle(appBlack, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
+        withStyle(style = SpanStyle(MaterialTheme.colors.secondary, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
             append("I am a forward-thinking developer with ")
         }
         withStyle(style = SpanStyle(appYellow, fontSize = 16.sp, fontWeight = FontWeight.Bold)) {
             append("6 Years ")
         }
-        withStyle(style = SpanStyle(appBlack, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
+        withStyle(style = SpanStyle(MaterialTheme.colors.secondary, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
             append("of experience building, integrating and supporting ")
         }
         withStyle(style = SpanStyle(appYellow, fontSize = 16.sp, fontWeight = FontWeight.Bold)) {
             append("Android Applications ")
         }
-        withStyle(style = SpanStyle(appBlack, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
+        withStyle(style = SpanStyle(MaterialTheme.colors.secondary, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
             append("for mobile devices.\n\nCurrently living in ")
         }
         withStyle(style = SpanStyle(appYellow, fontSize = 16.sp, fontWeight = FontWeight.Bold)) {
             append("Abu Dhabi (UAE)")
         }
-        withStyle(style = SpanStyle(appBlack, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
+        withStyle(style = SpanStyle(MaterialTheme.colors.secondary, fontSize = 14.sp, fontWeight = FontWeight.Bold)) {
             append(", open to new roles for Sr. Software Engineer (Android).")
         }
     }
@@ -93,7 +93,7 @@ fun ProfileScreen(uriHandler: UriHandler) {
                     "Sr. Software Engineer (Android)",
                     style = TextStyle(
                         fontWeight = FontWeight.Bold,
-                        color = appBlack,
+                        color = MaterialTheme.colors.secondary,
                     ),
                 )
 
