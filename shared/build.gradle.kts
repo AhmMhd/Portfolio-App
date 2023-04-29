@@ -11,6 +11,12 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+    js(IR) {
+        browser()
+    }
+    wasm {
+        browser()
+    }
 
     cocoapods {
         version = "1.0.0"
@@ -51,6 +57,18 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
+
+        val jsWasmMain by creating {
+            dependsOn(commonMain)
+        }
+
+        val jsMain by getting {
+            dependsOn(jsWasmMain)
+        }
+
+        val wasmMain by getting {
+            dependsOn(jsWasmMain)
+        }
     }
 }
 
@@ -74,3 +92,6 @@ android {
         jvmToolchain(11)
     }
 }
+
+// Use a proper version of webpack, TODO remove after updating to Kotlin 1.9.
+rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().versions.webpack.version = "5.76.2"
