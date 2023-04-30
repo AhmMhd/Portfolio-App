@@ -3,6 +3,7 @@ rootProject.name = "MyPortfolio"
 include(":androidApp")
 include(":shared")
 include(":webApp")
+include(":desktopApp")
 
 pluginManagement {
     repositories {
@@ -20,10 +21,8 @@ pluginManagement {
         kotlin("jvm").version(kotlinVersion)
         kotlin("multiplatform").version(kotlinVersion)
         kotlin("android").version(kotlinVersion)
-
         id("com.android.application").version(agpVersion)
         id("com.android.library").version(agpVersion)
-
         id("org.jetbrains.compose").version(composeVersion)
     }
 }
