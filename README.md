@@ -19,19 +19,19 @@ This repo contain 4 platfroms
 
 
 ### Android
-![](readme_images/android-light.png) ![](readme_images/android-dark.png)
+![](readme_images/android.png)
 #### How To Run
 Select androidApp from the top drop down and tab run button
 ![](readme_images/how-to-android.png)
 
 ### iOS
-![](readme_images/ios-light.png) ![](readme_images/ios-dark.png)
+![](readme_images/ios.png)
 #### How To Run
 Select iosApp from the top drop down and tab run button
 ![](readme_images/how-to-ios.png)
 
 ### Desktop App
-![](readme_images/desktop-light.png) ![](readme_images/desktop-dark.png)
+![](readme_images/desktop.png)
 #### How To Run
 Select desktooApp from the top drop down and tab run button
 ![](readme_images/how-to-desktop.png)
