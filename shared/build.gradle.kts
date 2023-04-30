@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     android()
-
+    jvm("desktop")
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -68,6 +68,13 @@ kotlin {
 
         val wasmMain by getting {
             dependsOn(jsWasmMain)
+        }
+
+        val desktopMain by getting {
+            dependencies {
+                implementation(compose.desktop.common)
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.4")
+            }
         }
     }
 }
